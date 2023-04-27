@@ -1,0 +1,39 @@
+{
+  "name": "@djmax/mobile-apps",
+  "version": "1.0.0",
+  "description": "A monorepo for React Native apps with Fabric",
+  "main": "index.js",
+  "repository": "https://github.com/djMax/rn-monorepo-fabric",
+  "license": "UNLICENSED",
+  "private": true,
+  "packageManager": "yarn@3.5.0",
+  "workspaces": {
+    "packages": [
+      "common/*",
+      "patient-app/*",
+      "provider-app/*"
+    ]
+  },
+  "scripts": {
+    "build": "ultra -r build",
+    "clean": "ultra -r clean",
+    "lint": "ultra -r lint",
+    "lint:fix": "ultra -r lint:fix",
+    "format": "prettier '*.{js,json,md,yml}|**/**/*.{js,ts,tsx,json,md,css,yml}'",
+    "format:fix": "yarn format --write",
+    "format:check": "yarn format --check",
+    "android": "yarn workspace @djmax/patient-app run android",
+    "ios": "yarn workspace @djmax/patient-app run ios",
+    "typecheck": "ultra -r typecheck",
+    "watch": "ultra -r watch",
+    "postinstall": "husky install"
+  },
+  "devDependencies": {
+    "@serverless-guru/prettier-plugin-import-order": "^0.4.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
+    "prettier": "^2.8.8",
+    "solidarity": "^3.0.4",
+    "ultra-runner": "^3.10.5"
+  }
+}
